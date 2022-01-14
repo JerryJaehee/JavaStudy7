@@ -1,15 +1,32 @@
 package com.java.iu.addressbook;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class PrintAddress {
-	public void printInfo (ArrayList<InfoDTO> ar) {
+	
+	//한 사람의 정보를 출력하는 메서드
+	//정보가 있으면 출력, 없으면 정보가 없음 출력
+	public void printInfo (InfoDTO infoDTO) {
+		if(infoDTO != null) {
+			System.out.println("이름 : "+infoDTO.getName());
+			System.out.println("별명 : "+infoDTO.getNickName());
+			System.out.println("이메일 : "+infoDTO.getEmail());
+			System.out.println("전화번호 : "+infoDTO.getPhoneNum());
+			System.out.println("생일 : "+infoDTO.getBirth());
+		}
+		else {
+			System.out.println("정보가 없습니다.");
+		}
+	}
+	
+	public void printInfo (List<InfoDTO> ar) {
 		for(int i = 0; i<ar.size();i++) {
-			System.out.println("이름 : "+ar.get(i).getName());
-			System.out.println("별명 : "+ar.get(i).getNickName());
-			System.out.println("이메일 : "+ar.get(i).getEmail());
-			System.out.println("전화번호 : "+ar.get(i).getPhoneNum());
-			System.out.println("생일 : "+ar.get(i).getBirth());
+			InfoDTO infoDTO = ar.get(i);
+			System.out.println("이름 : "+infoDTO.getName());
+			System.out.println("별명 : "+infoDTO.getNickName());
+			System.out.println("이메일 : "+infoDTO.getEmail());
+			System.out.println("전화번호 : "+infoDTO.getPhoneNum());
+			System.out.println("생일 : "+infoDTO.getBirth());
 		}
 	}
 }
