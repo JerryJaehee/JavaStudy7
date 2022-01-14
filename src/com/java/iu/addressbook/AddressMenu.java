@@ -28,7 +28,6 @@ public class AddressMenu {
 			} else if (select == 3) {
 				InfoDTO infoDTO  = addressService.inputInfo();
 				ar.add(infoDTO);
-				System.out.println(ar);
 			} else if (select == 4) {
 				InfoDTO infoDTO = addressService.removeInfo(ar);
 				printAd.deleteInfo(infoDTO);

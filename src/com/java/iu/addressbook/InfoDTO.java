@@ -1,11 +1,13 @@
 package com.java.iu.addressbook;
 
+import java.util.Calendar;
+
 public class InfoDTO {
 	private String name;
 	private String nickName;
 	private String email;
 	private String phoneNum;
-	private String birth;
+	private Calendar birth;
 	
 	public String getName() {
 		return name;
@@ -31,12 +33,13 @@ public class InfoDTO {
 	public void setPhoneNum(String phoneNum) {
 		this.phoneNum = phoneNum;
 	}
-	public String getBirth() {
+	public Calendar getBirth() {
 		return birth;
 	}
-	public void setBirth(String birth) {
+	public void setBirth(Calendar birth) {
 		this.birth = birth;
 	}
+	
 	
 	
 	

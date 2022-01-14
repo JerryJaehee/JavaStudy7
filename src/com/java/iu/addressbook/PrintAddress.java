@@ -1,9 +1,17 @@
 package com.java.iu.addressbook;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class PrintAddress {
+	String pattern = null;
+	SimpleDateFormat sd;
 	
+	public PrintAddress() {
+		pattern = "yyyy년 MM월 dd일 <E>";
+		sd = new SimpleDateFormat(pattern); 
+	}
+
 	//문자열을 받아서 출력하는 메서드
 	public void deleteInfo (InfoDTO infoDTO) {
 		if(infoDTO != null) 
@@ -20,7 +28,10 @@ public class PrintAddress {
 			System.out.println("별명 : "+infoDTO.getNickName());
 			System.out.println("이메일 : "+infoDTO.getEmail());
 			System.out.println("전화번호 : "+infoDTO.getPhoneNum());
-			System.out.println("생일 : "+infoDTO.getBirth());
+			String birth = sd.format(infoDTO.getBirth().getTime());
+			System.out.println("생일 : "+birth); //2000년 12월 24일 (수)
+			
+			
 		}
 		else {
 			System.out.println("정보가 없습니다.");
@@ -34,7 +45,8 @@ public class PrintAddress {
 			System.out.println("별명 : "+infoDTO.getNickName());
 			System.out.println("이메일 : "+infoDTO.getEmail());
 			System.out.println("전화번호 : "+infoDTO.getPhoneNum());
-			System.out.println("생일 : "+infoDTO.getBirth());
+			String birth = sd.format(infoDTO.getBirth().getTime());
+			System.out.println("생일 : "+birth);
 		}
 	}
 }

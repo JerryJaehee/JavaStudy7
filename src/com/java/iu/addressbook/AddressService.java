@@ -1,5 +1,6 @@
 package com.java.iu.addressbook;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.Scanner;
 
@@ -53,7 +54,13 @@ public class AddressService {
 		System.out.println("전화번호를 입력하세요.");
 		infoDTO.setPhoneNum(sc.next());
 		System.out.println("생일을 입력하세요.");
-		infoDTO.setBirth(sc.next());
+		String birth = sc.next(); //20001224 패턴
+		int year = Integer.parseInt(birth.substring(0,4));
+		int month = Integer.parseInt(birth.substring(4,6))-1; //달이 0부터 시작되니 1부터 시작되게끔 -1 
+		int day = Integer.parseInt(birth.substring(6));
+		Calendar ca = Calendar.getInstance();
+		ca.set(year, month, day);
+		infoDTO.setBirth(ca);
 		
 		return infoDTO;
 	}
