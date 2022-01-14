@@ -3,15 +3,32 @@ package com.java.iu.addressbook;
 import java.util.List;
 import java.util.Scanner;
 
-public class AddressInput {
+public class AddressService {
 	private Scanner sc;
 	
-	public AddressInput() { //생성자
+	public AddressService() { //생성자
 		sc = new Scanner(System.in);
 	}
 	
-	//이름을 입력받아서 같은 이름이 있는 InfoDTO를 찾아서 리턴
+	//이름을 입력받아서 같은 이름이 잇는 InfoDTO의 인덱스 번호 찾기
+	//찾아서 삭제
+	//삭제여부 리턴(0 : 성공 / 1 : 실패 or S : 성공 F : 실패 / true:성공 false:실패
+	public InfoDTO removeInfo(List<InfoDTO> ar) {
+		System.out.println("삭제를 원하는 이름을 입력하세요.");
+		String name = sc.next();
+		InfoDTO infoDTO = null;
+		for(int i = 0; i<ar.size();i++) {
+			if(name.equals(ar.get(i).getName())) {
+				infoDTO = ar.remove(i);
+				break;
+			}
+		}
+		
+		return infoDTO;
+	}
 	
+	
+	//이름을 입력받아서 같은 이름이 있는 InfoDTO를 찾아서 리턴
 	public InfoDTO searchInfo(List<InfoDTO> ar) {
 		System.out.println("출력을 원하는 이름을 입력하세요.");
 		String name = sc.next();

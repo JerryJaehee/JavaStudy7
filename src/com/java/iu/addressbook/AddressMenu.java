@@ -1,12 +1,11 @@
 package com.java.iu.addressbook;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class AddressMenu {
 	public void select() {
-		AddressInput addressInput = new AddressInput(); //3. 명단추가
+		AddressService addressService = new AddressService(); //3. 명단추가
 		PrintAddress printAd = new PrintAddress(); //1. 전체명단 출력 
 		ArrayList<InfoDTO> ar =new ArrayList<>(); // info가 담겨져있는 리스트
 		Scanner sc = new Scanner(System.in);
@@ -24,14 +23,15 @@ public class AddressMenu {
 			if (select == 1) {
 				printAd.printInfo(ar);
 			} else if (select == 2) {
-				InfoDTO infoDTO = addressInput.searchInfo(ar);
+				InfoDTO infoDTO = addressService.searchInfo(ar);
 				printAd.printInfo(infoDTO);
 			} else if (select == 3) {
-				InfoDTO infoDTO  = addressInput.inputInfo();
+				InfoDTO infoDTO  = addressService.inputInfo();
 				ar.add(infoDTO);
 				System.out.println(ar);
 			} else if (select == 4) {
-				System.out.println("4");
+				InfoDTO infoDTO = addressService.removeInfo(ar);
+				printAd.deleteInfo(infoDTO);
 			} else {
 				System.out.println("Finish");
 				break;

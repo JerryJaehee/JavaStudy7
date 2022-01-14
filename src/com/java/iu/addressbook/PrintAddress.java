@@ -4,6 +4,14 @@ import java.util.List;
 
 public class PrintAddress {
 	
+	//문자열을 받아서 출력하는 메서드
+	public void deleteInfo (InfoDTO infoDTO) {
+		if(infoDTO != null) 
+			System.out.println("삭제 성공");
+		else 
+			System.out.println("삭제 실패");
+	}
+	
 	//한 사람의 정보를 출력하는 메서드
 	//정보가 있으면 출력, 없으면 정보가 없음 출력
 	public void printInfo (InfoDTO infoDTO) {
