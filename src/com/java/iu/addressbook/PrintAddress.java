@@ -37,7 +37,7 @@ public class PrintAddress {
 			System.out.println("정보가 없습니다.");
 		}
 	}
-	
+
 	public void printInfo (List<InfoDTO> ar) {
 		for(int i = 0; i<ar.size();i++) {
 			InfoDTO infoDTO = ar.get(i);
