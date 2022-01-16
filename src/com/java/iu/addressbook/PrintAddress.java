@@ -19,7 +19,7 @@ public class PrintAddress {
 		else 
 			System.out.println("삭제 실패");
 	}
-	
+	 
 	//한 사람의 정보를 출력하는 메서드
 	//정보가 있으면 출력, 없으면 정보가 없음 출력
 	public void printInfo (InfoDTO infoDTO) {
